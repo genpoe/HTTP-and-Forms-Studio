@@ -8,20 +8,26 @@
 			let selectedEngineObj = document.querySelector("input[name=engine]:checked")
 			let engine = selectedEngineObj.value;
 			let actions = {
-				"google": "https://www.google.com",
+				"google": "https://www.google.com/search",
 				"duckDuckGo": "https://duckduckgo.com/",
 				"bing": "https://www.bing.com/search",
 				"ask": "https://www.ask.com/web"
 			};
-			alert(actions[engine]);
+			let searchTerm = document.querySelector("input[name=q");
+			let actionURL = actions[engine] + "?q=" + searchTerm.value;
+			
+			let form = document.querySelector("form");
+			form.setAttribute("action", actionURL);
 		}
+
 		window.addEventListener("load", function(){
 			console.log("window loaded");
 			let form = document.querySelector("form");
 			form.addEventListener("submit", function(event) {
 				setSearchEngine();
-			})
+			});
 		});
+
 	</script>
 </head>
 
